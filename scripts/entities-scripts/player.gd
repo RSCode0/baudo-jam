@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var direction: Vector2
-var speed: int = 1000
+var speed: int = 2000
 var current_animation: String = "front_idle"
 
 func _physics_process(delta: float) -> void:
