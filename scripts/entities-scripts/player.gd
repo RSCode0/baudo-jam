@@ -14,7 +14,3 @@ func _input(event: InputEvent) -> void:
 
 func animation():
 	$AnimatedSprite2D.play(current_animation)
-	if direction.y < 0:
-		current_animation = "back_walk"
-	elif direction.y > 0:
-		current_animation = "front_walk"
