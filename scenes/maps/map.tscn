@@ -14,11 +14,19 @@ texture = ExtResource("1_fwjtt")
 [sub_resource type="TileSet" id="TileSet_aqr3f"]
 sources/0 = SubResource("TileSetAtlasSource_ry644")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fwjtt"]
+polygon = PackedVector2Array(-5.1360474, 8, -8, 8, -8, -8, -5.31015, -8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ry644"]
+polygon = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, -4.9619427, -4.9619446, -5.31015, -5.1360474, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fwjtt"]
 texture = ExtResource("1_fwjtt")
 2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fwjtt")
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.003765, 8, -8, 8, -8, -8, -5.013743, -8)
 2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ry644")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.003765, 8, -8, 8, -8, -8, 8, -8, 8, -5.0039063, -4.9882813, -5.0039063)
 3:0/0 = 0
 3:1/0 = 0
@@ -27,6 +35,7 @@ texture = ExtResource("1_fwjtt")
 5:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_be0ha"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_fwjtt")
