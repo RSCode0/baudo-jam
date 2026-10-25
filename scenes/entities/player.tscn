@@ -94,7 +94,9 @@ position = Vector2(0, -24)
 texture = ExtResource("4_42nxq")
 
 [node name="PointLight2D" type="PointLight2D" parent="Torche" unique_id=1278087491]
-energy = 3.0
+scale = Vector2(1, 2.625)
+energy = 8.0
+blend_mode = 2
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("5_5u6hq")
