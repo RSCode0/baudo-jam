@@ -15,6 +15,18 @@ fill_from = Vector2(0.2842742, 0.33669356)
 shader = ExtResource("1_lbhrr")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_lbhrr")
 
+[sub_resource type="Gradient" id="Gradient_iywne"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lbhrr"]
+noise = SubResource("FastNoiseLite_lbhrr")
+color_ramp = SubResource("Gradient_iywne")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
+shader = ExtResource("1_lbhrr")
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_lbhrr")
+
 [node name="Game" type="Node2D" unique_id=567505834]
 material = SubResource("ShaderMaterial_61gog")
 script = ExtResource("1_uwrxv")
@@ -29,3 +41,8 @@ position = Vector2(54, 33)
 
 [node name="Map" parent="Maps" unique_id=1370805108 instance=ExtResource("3_lnu2h")]
 modulate = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1686371015]
+material = SubResource("ShaderMaterial_lbhrr")
+offset_right = 1280.0
+offset_bottom = 784.0
