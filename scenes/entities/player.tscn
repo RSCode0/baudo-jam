@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://owru8knkty5y" path="res://scripts/entities-scripts/player.gd" id="1_08t41"]
 [ext_resource type="Texture2D" uid="uid://c2hian3b6ae6b" path="res://graphics/sprites/player_sprites/Personnage_front_walk.png" id="1_ucweq"]
 [ext_resource type="Texture2D" uid="uid://c6ard7o7hrfxn" path="res://graphics/sprites/player_sprites/Personnage_back_walk.png" id="2_1ie0h"]
+[ext_resource type="Texture2D" uid="uid://cnodbqbg25f5b" path="res://graphics/sprites/Objects_sprites/lampe-torche.png" id="4_42nxq"]
+[ext_resource type="Texture2D" uid="uid://b6yggsnl5mpj5" path="res://graphics/sprites/textures/torche-light-texture.png" id="5_5u6hq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5u6hq"]
 atlas = ExtResource("2_1ie0h")
@@ -75,3 +77,23 @@ shape = SubResource("CapsuleShape2D_5u6hq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=385738385]
 zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 780
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 20.0
+
+[node name="Torche" type="Node2D" parent="." unique_id=438180732]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Torche" unique_id=1562819581]
+position = Vector2(0, -24)
+texture = ExtResource("4_42nxq")
+
+[node name="PointLight2D" type="PointLight2D" parent="Torche" unique_id=1278087491]
+position = Vector2(0, -170)
+energy = 3.25
+texture = ExtResource("5_5u6hq")

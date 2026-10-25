@@ -16,3 +16,4 @@ position = Vector2(54, 33)
 [node name="Maps" type="Node2D" parent="." unique_id=239789703]
 
 [node name="Map" parent="Maps" unique_id=1370805108 instance=ExtResource("3_lnu2h")]
+modulate = Color(0.07116323, 0.07116323, 0.07116323, 1)

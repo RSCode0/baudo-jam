@@ -7,6 +7,7 @@ var current_animation: String = "front_idle"
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed * delta
 	animation()
+	update_torche_rotation()
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -14,3 +15,12 @@ func _input(event: InputEvent) -> void:
 
 func animation():
 	$AnimatedSprite2D.play(current_animation)
+	if direction:
+		if direction.y > 0:
+			current_animation = "front_walk"
+		elif direction.y < 0:
+			current_animation = "back_walk"
+
+func update_torche_rotation():
+	$Torche.look_at(get_global_mouse_position())
+	$Torche.rotation_degrees += 90
