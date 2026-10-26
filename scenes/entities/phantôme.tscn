@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cjhoorq7i8xlb"]
+
+[ext_resource type="Script" uid="uid://cstfghsinxg8g" path="res://scripts/entities-scripts/ennemi_base.gd" id="1_i6xn8"]
+[ext_resource type="Texture2D" uid="uid://btu610tvsgqda" path="res://graphics/sprites/entities-sprites/phantôme.png" id="2_ihmvc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0x8yu"]
+radius = 19.104973
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be0ha"]
+radius = 39.623226
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i6xn8"]
+cull_mode = 2
+polygon = PackedVector2Array(-5, 9, -2, 9, -2, 8, 2, 8, 2, 9, 5, 9, 5, 8, 8, 8, 8, 7, 9, 7, 9, 3, 8, 3, 8, -5, 7, -5, 7, -8, 6, -8, 6, -10, 5, -10, 5, -11, 4, -11, 4, -12, 2, -12, 2, -13, -2, -13, -2, -12, -4, -12, -4, -11, -5, -11, -5, -10, -6, -10, -6, -8, -7, -8, -7, -5, -8, -5, -8, 3, -9, 3, -9, 7, -8, 7, -8, 8, -5, 8)
+
+[node name="Phantôme" type="Node2D" unique_id=372875011]
+
+[node name="Ennemi_base" type="Area2D" parent="." unique_id=314191377]
+script = ExtResource("1_i6xn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ennemi_base" unique_id=35325767]
+texture = ExtResource("2_ihmvc")
+
+[node name="Hitbox" type="Area2D" parent="Ennemi_base" unique_id=398765909]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ennemi_base/Hitbox" unique_id=1430775022]
+shape = SubResource("CircleShape2D_0x8yu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ennemi_base" unique_id=693163408]
+shape = SubResource("CircleShape2D_be0ha")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1097909353]
+occluder = SubResource("OccluderPolygon2D_i6xn8")

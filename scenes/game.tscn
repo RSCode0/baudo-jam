@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://26s4mjns8ho1" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ky0hkgyugiko" path="res://scenes/entities/player.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cdf7au04wu422" path="res://scenes/maps/map.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cjhoorq7i8xlb" path="res://scenes/entities/phantôme.tscn" id="4_iywne"]
 
 [sub_resource type="Gradient" id="Gradient_lbhrr"]
 
@@ -16,6 +17,8 @@ shader = ExtResource("1_lbhrr")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_lbhrr")
 
 [sub_resource type="Gradient" id="Gradient_iywne"]
+offsets = PackedFloat32Array(0, 0.008928572, 0.9791667, 0.9970238, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0922619, 0.0922619, 0.0922619, 1, 1, 1, 1, 1, 0.88905424, 0.88905424, 0.88905424, 1, 0.89914024, 0.89914024, 0.89914024, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
 
@@ -23,6 +26,7 @@ shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_lbhrr")
 noise = SubResource("FastNoiseLite_lbhrr")
 color_ramp = SubResource("Gradient_iywne")
 seamless = true
+normalize = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
 shader = ExtResource("1_lbhrr")
@@ -35,8 +39,14 @@ script = ExtResource("1_uwrxv")
 [node name="Entities" type="Node2D" parent="." unique_id=1896554701]
 z_index = 1
 
-[node name="Player" parent="Entities" unique_id=1806922465 instance=ExtResource("2_yqjtg")]
+[node name="Player" parent="Entities" unique_id=1806922465 groups=["Player"] instance=ExtResource("2_yqjtg")]
 position = Vector2(54, 33)
+
+[node name="Ennemis" type="Node2D" parent="Entities" unique_id=1195504483]
+modulate = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="Phantôme" parent="Entities/Ennemis" unique_id=372875011 instance=ExtResource("4_iywne")]
+position = Vector2(127, 53)
 
 [node name="Maps" type="Node2D" parent="." unique_id=239789703]
 
@@ -47,4 +57,4 @@ modulate = Color(0.049069785, 0.049069785, 0.049069785, 1)
 light_mask = 0
 material = SubResource("ShaderMaterial_lbhrr")
 offset_right = 1280.0
-offset_bottom = 784.0
+offset_bottom = 781.0
