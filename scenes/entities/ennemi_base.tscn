@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cstfghsinxg8g" path="res://scripts/entities-scripts/ennemi_base.gd" id="1_kuhyk"]
 
 [node name="Ennemi_base" type="Area2D" unique_id=314191377]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_kuhyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=35325767]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dhh2fnbs2sv3h"]
+
+[ext_resource type="Script" uid="uid://rlcb7hqjaxy7" path="res://scripts/entities-scripts/npc_base.gd" id="1_u3gfj"]
+
+[node name="NPC_base" type="Area2D" unique_id=504461816]
+script = ExtResource("1_u3gfj")
+
+[node name="Label" type="Label" parent="." unique_id=296120210]
+offset_right = 40.0
+offset_bottom = 23.0

@@ -16,6 +16,11 @@ fill_from = Vector2(0.2842742, 0.33669356)
 shader = ExtResource("1_lbhrr")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_lbhrr")
 
+[sub_resource type="Environment" id="Environment_be0ha"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 1.5
+
 [sub_resource type="Gradient" id="Gradient_iywne"]
 offsets = PackedFloat32Array(0, 0.008928572, 0.9791667, 0.9970238, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.0922619, 0.0922619, 0.0922619, 1, 1, 1, 1, 1, 0.88905424, 0.88905424, 0.88905424, 1, 0.89914024, 0.89914024, 0.89914024, 1)
@@ -35,6 +40,9 @@ shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_lbhrr")
 [node name="Game" type="Node2D" unique_id=567505834]
 material = SubResource("ShaderMaterial_61gog")
 script = ExtResource("1_uwrxv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=430261138]
+environment = SubResource("Environment_be0ha")
 
 [node name="Entities" type="Node2D" parent="." unique_id=1896554701]
 z_index = 1

@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 [autoload]
 
 EnnemiManager="*uid://dg2ru15evvc2i"
+NpcManager="*uid://cy5qsrx8p34ac"
+SaveLoad="*uid://c0j4c78i212cb"
 
 [display]
 
@@ -66,4 +68,7 @@ down={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+2d/snap/snap_2d_transforms_to_pixel=true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cstfghsinxg8g" path="res://scripts/entities-scripts/ennemi_base.gd" id="1_i6xn8"]
 [ext_resource type="Texture2D" uid="uid://btu610tvsgqda" path="res://graphics/sprites/entities-sprites/phantôme.png" id="2_ihmvc"]
+[ext_resource type="Shader" uid="uid://bpl5vtm5k4c51" path="res://shaders/light.gdshader" id="3_ihmvc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0x8yu"]
 radius = 19.104973
@@ -10,8 +11,12 @@ radius = 19.104973
 radius = 39.623226
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i6xn8"]
-cull_mode = 2
+closed = false
 polygon = PackedVector2Array(-5, 9, -2, 9, -2, 8, 2, 8, 2, 9, 5, 9, 5, 8, 8, 8, 8, 7, 9, 7, 9, 3, 8, 3, 8, -5, 7, -5, 7, -8, 6, -8, 6, -10, 5, -10, 5, -11, 4, -11, 4, -12, 2, -12, 2, -13, -2, -13, -2, -12, -4, -12, -4, -11, -5, -11, -5, -10, -6, -10, -6, -8, -7, -8, -7, -5, -8, -5, -8, 3, -9, 3, -9, 7, -8, 7, -8, 8, -5, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6xn8"]
+shader = ExtResource("3_ihmvc")
+shader_parameter/intensity = 10.0
 
 [node name="Phantôme" type="Node2D" unique_id=372875011]
 
@@ -31,3 +36,20 @@ shape = SubResource("CircleShape2D_be0ha")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1097909353]
 occluder = SubResource("OccluderPolygon2D_i6xn8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1041181482]
+material = SubResource("ShaderMaterial_i6xn8")
+amount = 5
+randomness = 1.0
+lifetime_randomness = 0.58
+emission_shape = 2
+emission_sphere_radius = 17.28
+gravity = Vector2(0, -100)
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+color = Color(0.34345308, 0.22219759, 0.7034924, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=683432791]
+target_position = Vector2(27, 28)
+collide_with_areas = true
+collide_with_bodies = false

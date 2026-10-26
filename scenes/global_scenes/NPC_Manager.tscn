@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cy5qsrx8p34ac"]
+
+[ext_resource type="Script" uid="uid://o2hgg63o7u1w" path="res://scripts/global_scripts/NPC_Manager.gd" id="1_cdnaw"]
+
+[node name="NpcManager" type="Node2D" unique_id=996753361]
+script = ExtResource("1_cdnaw")
