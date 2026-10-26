@@ -3,10 +3,9 @@ class_name NPC_MANAGER
 
 var active_dialogue = false
 var active_npc: NPC
-var active_player_dialogue = false
 var active_dialogues
 var dialogues = NPCData.new()
-@onready var player: Player = get_tree().get_first_node_in_group("Player")
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 var dialogue_index = 0
 var current_text = ""
@@ -38,8 +37,6 @@ func _input(event: InputEvent) -> void:
 				else:
 					active_dialogues = dialogues[active_npc.npc_name.remove_chars(" ")]["base_dialogue"]
 			advance_dialogue()
-		elif active_player_dialogue:
-			advance_dialogue()
 
 func _process(delta: float) -> void:
 	if active_npc:
@@ -55,20 +52,9 @@ func _process(delta: float) -> void:
 			active_npc.panel.show()
 			active_npc.label.hide()
 			player.dialogue_panel.hide()
-	elif active_player_dialogue:
-		dialogue(delta)
-		player.health_bar.hide()
 	else:
 		player.health_bar.show()
 		player.dialogue_panel.hide()
-
-func check_player_dialogue(flag):
-	if flag in dialogues.Player.keys():
-		active_player_dialogue = true
-		player.can_move = false
-		player.current_animation = "idle"
-		active_dialogues = dialogues.Player[flag]
-		advance_dialogue()
 
 func dialogue(delta):
 	var current_time = Time.get_ticks_msec()
@@ -89,7 +75,6 @@ func advance_dialogue():
 			SaveLoad.save()
 		dialogue_index = 0
 		active_dialogue = false
-		active_player_dialogue = false
 		player.can_move = true
 		current_text = ""
 		current_speaker = ""
