@@ -44,6 +44,7 @@ position = Vector2(54, 33)
 modulate = Color(0.049069785, 0.049069785, 0.049069785, 1)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1686371015]
+light_mask = 0
 material = SubResource("ShaderMaterial_lbhrr")
 offset_right = 1280.0
 offset_bottom = 784.0
