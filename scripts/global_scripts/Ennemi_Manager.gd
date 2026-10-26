@@ -6,7 +6,7 @@ var current_ennemis = []
 func register_ennemi(ennemi):
 	current_ennemis.append(ennemi)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func update_ennemis_position(delta):

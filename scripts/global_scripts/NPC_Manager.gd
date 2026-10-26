@@ -8,6 +8,7 @@ var dialogues = NPCData.new()
 @onready var player = get_tree().get_first_node_in_group("Player")
 
 var dialogue_index = 0
+var current_dialogue
 var current_text = ""
 var current_speaker: String
 
@@ -51,12 +52,8 @@ func _process(delta: float) -> void:
 			active_npc.interact_text.show()
 			active_npc.panel.show()
 			active_npc.label.hide()
-			player.dialogue_panel.hide()
-	else:
-		player.health_bar.show()
-		player.dialogue_panel.hide()
 
-func dialogue(delta):
+func dialogue(_delta):
 	var current_time = Time.get_ticks_msec()
 	if typewritter_index <= len(current_text):
 		if current_time - typewritter_timer > typewritter_speed:
@@ -80,9 +77,9 @@ func advance_dialogue():
 		current_speaker = ""
 		return
 
-	var dialogue = active_dialogues[dialogue_index]
-	current_text = handle_action_tag(dialogue["text"])
-	current_speaker = dialogue["speaker"]
+	current_dialogue = active_dialogues[dialogue_index]
+	current_text = handle_action_tag(current_dialogue["text"])
+	current_speaker = current_dialogue["speaker"]
 	dialogue_index += 1
 	typewritter_index = 0
 
